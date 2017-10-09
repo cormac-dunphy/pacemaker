@@ -12,33 +12,43 @@ import models.User;
 
 public class PacemakerAPI
 {
-  private HashMap<String, User> users =  new HashMap<>();
-
+  private HashMap<Long, User> userIndex =  new HashMap<>();
+  private HashMap<String, User> emailIndex = new HashMap<>();
+  //private HashMap<Long, User> userIndex = new HashMap<>();
+  
   public Collection<User> getUsers ()
   {
-    return users.values();
+    return userIndex.values();
   }
 
   public  void deleteUsers() 
   {
-    users.clear();
+    userIndex.clear();
+    emailIndex.clear();
   }
 
   public User createUser(String firstName, String lastName, String email, String password) 
   {
     User user = new User (firstName, lastName, email, password);
-    users.put(email, user);
+    userIndex.put(user.id, user);
+    emailIndex.put(email, user);
     return user;
   }
 
-  public User getUser(String email) 
+  public User getUserByEmail(String email) 
   {
-	  return users.get(email);
+	  return emailIndex.get(email);
+  }
+  
+  public User getUser(Long id) 
+  {
+	  return userIndex.get(id);
   }
 
-  public void deleteUser(String email) 
+  public void deleteUser(Long id) 
   {
-    users.remove(email);
+    User user = userIndex.remove(id);
+    emailIndex.remove(user.email);
   }
   
 }

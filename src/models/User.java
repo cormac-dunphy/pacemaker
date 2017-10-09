@@ -3,6 +3,8 @@ import com.google.common.base.Objects;
 import static com.google.common.base.MoreObjects.toStringHelper;
 
 public class User {
+	static Long counter = 0l;
+	public Long id;
 	public String firstName;
 	public String lastName;
 	public String email;
@@ -16,6 +18,7 @@ public class User {
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
+		this.id = counter++;
 	}
 
 	@Override
