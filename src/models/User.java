@@ -10,8 +10,8 @@ public class User {
 	public String email;
 	public String password;
 
-	public User() {
-	}
+	//public User() {
+	//}
 
 	public User(String firstName, String lastName, String email, String password) {
 		this.firstName = firstName;
@@ -24,7 +24,7 @@ public class User {
 	@Override
 	public String toString() 
 	{
-		return toStringHelper(this).addValue(firstName)
+		return toStringHelper(this).addValue(id).addValue(firstName)
 				.addValue(lastName)
 				.addValue(password).
 				addValue(email).

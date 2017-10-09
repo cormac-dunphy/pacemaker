@@ -23,8 +23,8 @@ public class Main
     User homer = pacemakerAPI.getUserByEmail("homer@simpson.com");
     System.out.println(homer);
 
-    pacemakerAPI.deleteUser(homer.id);
-    users = pacemakerAPI.getUsers();
-    System.out.println(users);
+   // pacemakerAPI.deleteUser(homer.id);
+   // users = pacemakerAPI.getUsers();
+    //System.out.println(users);
   }
 }
